@@ -42,6 +42,7 @@ final_data = merge(all_data,activity,by='activityId',all.x=TRUE)
 
 
 ### Create averages per variable for each activity for each person (step 5)
+### Skipping the first two columns as they are subject and activity Id so start at column 3 with mean
 avg_data <- ddply(final_data, .(subjectId, Activities), function(x) colMeans(x[, 3:81]))
 
 ### Write ave_data to a txt file
